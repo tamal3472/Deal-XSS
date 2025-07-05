@@ -6,6 +6,7 @@
 <p>
   <strong>Body:</strong>
   <%= raw @post.body %> <!-- Dangerous: allows XSS -->
+  <%# <%= raw HtmlSanitizer.custom_sanitize(@post.body) %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
