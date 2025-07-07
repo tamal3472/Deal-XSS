@@ -1,24 +1,37 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
+## To setup the project your local system needs you need to have
 
 * Ruby version
+```bash
+ ruby '3.2.2'
+```
 
-* System dependencies
+* Rails version
+```bash
+ gem 'rails', '~> 8.0.2'
+```
 
-* Configuration
+* Database
+```bash
+ any latest postgres version
+```
 
-* Database creation
+** To run the project
 
-* Database initialization
+- Clone the repository
 
-* How to run the test suite
+  ```bash
+    https://github.com/tamal3472/Deal-XSS.git
+  ```
 
-* Services (job queues, cache servers, search engines, etc.)
+- Run command
 
-* Deployment instructions
-
-* ...
+  ```bash
+    gem install bundler
+    bundle install
+    rails db:create
+    rails db:migrate
+    rails s
+  ```
+Server should now up and running at: http://localhost:3000
