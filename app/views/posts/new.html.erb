@@ -1,11 +1,28 @@
 <% content_for :title, "New post" %>
 
-<h1>New post</h1>
+<div class="posts-container">
+  <div class="content-wrapper">
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-content">
+        <h1>Create New Post</h1>
+        <p>Share your thoughts with the world</p>
+      </div>
+    </div>
 
-<%= render "form", post: @post %>
+    <!-- Form Card -->
+    <div class="form-card">
+      <%= render "form", post: @post %>
+    </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
+    <!-- Navigation Actions -->
+    <div class="navigation-actions">
+      <%= link_to posts_path, class: "btn-secondary" do %>
+        <svg width="16" height="16" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Back to Posts
+      <% end %>
+    </div>
+  </div>
 </div>

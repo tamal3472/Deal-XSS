@@ -1,16 +1,63 @@
-<p style="color: green"><%= notice %></p>
+<% content_for :title, "Posts" %>
 
 <% content_for :title, "Posts" %>
 
-<h1>Posts</h1>
+<div class="posts-container">
+  <div class="content-wrapper">
 
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+    <!-- Header Section -->
+    <div class="header-section">
+      <div class="header-content">
+        <h1>Posts</h1>
+        <p>Manage and view all your posts</p>
+      </div>
+      
+      <%= link_to new_post_path, class: "btn-primary" do %>
+        <svg width="16" height="16" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+        </svg>
+        New Post
+      <% end %>
+    </div>
+
+    <!-- Posts Grid -->
+    <% if @posts.any? %>
+      <div class="posts-grid" id="posts">
+        <% @posts.each do |post| %>
+          <div class="post-card">
+            <!-- Post Content -->
+            <div class="post-content">
+              <%= render post %>
+            </div>
+            
+            <!-- Post Actions -->
+            <div class="post-actions">
+              <%= link_to post, class: "post-link" do %>
+                <svg width="16" height="16" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+                </svg>
+                View Post
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% else %>
+      <!-- Empty State -->
+      <div class="empty-state">
+        <svg width="64" height="64" class="icon-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+        </svg>
+        <h3>No posts yet</h3>
+        <p>Get started by creating your first post.</p>
+        <%= link_to new_post_path, class: "btn-primary" do %>
+          <svg width="16" height="16" class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+          </svg>
+          Create Your First Post
+        <% end %>
+      </div>
+    <% end %>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>
