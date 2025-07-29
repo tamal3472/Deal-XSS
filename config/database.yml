@@ -1,3 +1,7 @@
+# sudo chown -R tamal:staff /opt/homebrew/var/postgresql@14
+# chmod 700 /opt/homebrew/var/postgresql@14
+# Try This first: pg_ctl -D /opt/homebrew/var/postgresql@14 start
+
 # PostgreSQL. Versions 9.3 and up are supported.
 #
 # Install the pg driver:
