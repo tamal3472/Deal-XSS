@@ -4,7 +4,7 @@ class HtmlSanitizer
   def self.custom_sanitize(html)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
 
-    allowed_tags = %w[p br b i em strong u a img div]
+    allowed_tags = %w[p br b i em strong u a img div svg]
     allowed_attributes = {
       "a" => %w[href title target rel],
       "img" => %w[src alt title width height]
